@@ -75,7 +75,7 @@ const Testimonials = () => {
                   />
                 ))}
               </div>
-              <p className="text-gray-500 text-lg mt-5">{testimonial.feedback}</p>
+              <p className="text-gray-500 text-base mt-5">{testimonial.feedback}</p>
             </div>
           </div>
         ))}

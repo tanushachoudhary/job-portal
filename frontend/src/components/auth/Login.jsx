@@ -59,36 +59,38 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#000428] to-[#004e92] h-screen">
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex items-center justify-center max-w-7xl mx-auto bg-blue-300 mt-24 w-1/3 bg-transparent border-2 border-white/20 backdrop-blur-md shadow-md rounded-lg">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-xl p-4 my-10"
+          className="w-full bg-blue-300 rounded-xl p-4 m-5"
         >
           <h1 className="font-bold text-xl mb-5">Log In</h1>
           <div className="my-2">
-            <Label>Email</Label>
+            <Label className="text-base">Email</Label>
             <Input
               type="email"
               placeholder="mail@gmail.com"
               value={input.email}
               name="email"
               onChange={changeEventHandler}
+              className=" text-base"
             />
           </div>
-          <div className="my-2">
-            <Label>Password</Label>
+          <div className="my-4">
+            <Label className="text-base">Password</Label>
             <Input
               type="password"
               placeholder="enter password"
               value={input.password}
               name="password"
+              className=" text-base"
               onChange={changeEventHandler}
             />
           </div>
           <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
+            <RadioGroup className="flex items-center gap-4 my-3">
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -98,7 +100,9 @@ const Login = () => {
                   onChange={changeEventHandler}
                   className="cursor-pointer"
                 />
-                <Label htmlFor="r1">Student</Label>
+                <Label htmlFor="r1" className="text-base">
+                  Student
+                </Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Input
@@ -109,7 +113,9 @@ const Login = () => {
                   onChange={changeEventHandler}
                   className="cursor-pointer"
                 />
-                <Label htmlFor="r2">Recruiter</Label>
+                <Label htmlFor="r2" className="text-base">
+                  Recruiter
+                </Label>
               </div>
             </RadioGroup>
           </div>
@@ -120,14 +126,17 @@ const Login = () => {
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait{" "}
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button
+              type="submit"
+              className="w-full my-3 text-base bg-[#004e92]"
+            >
               Login
             </Button>
           )}
 
-          <span className="text-sm">
+          <span className="text-base">
             Don't have an account?
-            <Link to="/signup" className="text-blue-600">
+            <Link to="/signup" className="text-blue-700">
               {" "}
               Signup
             </Link>

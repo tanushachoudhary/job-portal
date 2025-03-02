@@ -67,10 +67,12 @@ const Navbar = () => {
           {!user ? (
             <div className="flex items-center gap-2">
               <Link to="/login">
-                <Button variant="outline">Login</Button>
+                <Button variant="outline" className="font-bold text-base">
+                  Login
+                </Button>
               </Link>
               <Link to="/signup">
-                <Button className="text-white bg-[#6A38C2] hover:bg-[#5b30a6] ml-2">
+                <Button className="text-white font-bold text-base bg-blue-700 hover:bg-blue-900 ml-2">
                   Signup
                 </Button>
               </Link>
@@ -105,8 +107,9 @@ const Navbar = () => {
                   <div className="flex flex-col my-2 text-gray-700">
                     {user && user.role === "student" && (
                       <div className="flex w-fit items-center gap-3 cursor-pointer">
-                        <User2 className="ml-2"/>
-                        <Button variant="link"><Link to="/profile">View Profile</Link>
+                        <User2 className="ml-2" />
+                        <Button variant="link">
+                          <Link to="/profile">View Profile</Link>
                         </Button>
                       </div>
                     )}

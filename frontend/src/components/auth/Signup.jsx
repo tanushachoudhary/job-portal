@@ -75,16 +75,16 @@ const Signup = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#000428] to-[#004e92] h-screen">
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex items-center justify-center max-w-7xl mx-auto w-2/5 bg-transparent border-2 border-white/20 backdrop-blur-md shadow-md rounded-lg bg-blue-300 mt-8">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-xl p-4 my-10"
+          className="w-full rounded-xl p-3 my-6 mx-5"
         >
           <h1 className="font-bold text-xl mb-5">Sign Up</h1>
-          <div className="my-2">
-            <Label>Full Name</Label>
+          <div className="my-3">
+            <Label className="text-base">Full Name</Label>
             <Input
               type="text"
               placeholder="enter your name here"
@@ -93,8 +93,8 @@ const Signup = () => {
               onChange={changeEventHandler}
             />
           </div>
-          <div className="my-2">
-            <Label>Email</Label>
+          <div className="my-3">
+            <Label className="text-base">Email</Label>
             <Input
               type="email"
               placeholder="mail@gmail.com"
@@ -103,8 +103,8 @@ const Signup = () => {
               onChange={changeEventHandler}
             />
           </div>
-          <div className="my-2">
-            <Label>Phone Number</Label>
+          <div className="my-3">
+            <Label className="text-base">Phone Number</Label>
             <Input
               type="text"
               placeholder="1234567890"
@@ -113,8 +113,8 @@ const Signup = () => {
               onChange={changeEventHandler}
             />
           </div>
-          <div className="my-2">
-            <Label>Password</Label>
+          <div className="my-3">
+            <Label className="text-base">Password</Label>
             <Input
               type="password"
               placeholder="enter password"
@@ -124,7 +124,7 @@ const Signup = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
+            <RadioGroup className="flex items-center gap-4 my-4">
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -134,7 +134,9 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   className="cursor-pointer"
                 />
-                <Label htmlFor="r1">Student</Label>
+                <Label htmlFor="r1" className="text-base">
+                  Student
+                </Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Input
@@ -145,11 +147,13 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   className="cursor-pointer"
                 />
-                <Label htmlFor="r2">Recruiter</Label>
+                <Label htmlFor="r2" className="text-base">
+                  Recruiter
+                </Label>
               </div>
             </RadioGroup>
-            <div className="flex items-center gap-2">
-              <Label>Profile</Label>
+            <div className="flex items-center gap-2 ml-11">
+              <Label className="text-base">Profile</Label>
               <Input
                 accept="image/*"
                 type="file"
@@ -164,13 +168,13 @@ const Signup = () => {
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait{" "}
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button type="submit" className="w-full my-4 bg-[#004e92] text-base">
               Sign Up
             </Button>
           )}
-          <span className="text-sm">
+          <span className="text-base">
             Already have an account?
-            <Link to="/login" className="text-blue-600">
+            <Link to="/login" className="text-blue-700">
               {" "}
               Login
             </Link>

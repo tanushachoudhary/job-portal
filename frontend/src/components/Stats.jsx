@@ -2,7 +2,7 @@ import React from "react";
 
 const Stats = () => {
   return (
-    <div className="flex items-center gap-12 m-32">
+    <div className="flex text-center items-center gap-12 m-32">
       <div>
         <span className="text-blue-700 font-bold text-5xl">300K+</span> <br />{" "}
         <span className="text-2xl">companies hiring</span>

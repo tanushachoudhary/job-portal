@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import Footer from "../shared/Footer";
 
 const PostJob = () => {
   const [input, setInput] = useState({
@@ -67,11 +68,11 @@ const PostJob = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#DDEFBB] to-[#FFEEEE] h-screen">
       <Navbar />
-      <div className="flex items-center justify-center w-screen my-5">
+      <div className="flex items-center justify-center w-screen my-16">
         <form
-          className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md"
+          className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md bg-white"
           onSubmit={submitHandler}
         >
           <div className="grid grid-cols-2 gap-2">

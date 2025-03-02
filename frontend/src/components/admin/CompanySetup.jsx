@@ -80,7 +80,7 @@ const CompanySetup = () => {
   }, [singleCompany]);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#DDEFBB] to-[#FFEEEE] h-screen">
       <Navbar />
       <div className="max-w-xl mx-auto my-10 ">
         <form onSubmit={submitHandler}>
@@ -103,6 +103,7 @@ const CompanySetup = () => {
                 name="name"
                 value={input.name}
                 onChange={changeEventHandler}
+                className="bg-white"
               />
             </div>
             <div>
@@ -112,6 +113,7 @@ const CompanySetup = () => {
                 name="description"
                 value={input.description}
                 onChange={changeEventHandler}
+                className="bg-white"
               />
             </div>
             <div>
@@ -121,6 +123,7 @@ const CompanySetup = () => {
                 name="website"
                 value={input.website}
                 onChange={changeEventHandler}
+                className="bg-white"
               />
             </div>
             <div>
@@ -130,6 +133,7 @@ const CompanySetup = () => {
                 name="location"
                 value={input.location}
                 onChange={changeEventHandler}
+                className="bg-white"
               />
             </div>
             <div>
@@ -138,6 +142,7 @@ const CompanySetup = () => {
                 type="file"
                 accept="image/*"
                 onChange={changeFileHandler}
+                className="bg-white"
               />
             </div>
           </div>

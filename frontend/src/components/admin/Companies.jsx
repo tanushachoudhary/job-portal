@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useGetAllCompanies from "@/hooks/useGetAllCompanies";
 import { useDispatch } from "react-redux";
 import { setSearchCompanyByText } from "@/redux/companySlice";
+import Footer from "../shared/Footer";
 
 const Companies = () => {
   useGetAllCompanies();
@@ -18,7 +19,7 @@ const Companies = () => {
     dispatch(setSearchCompanyByText(input));
   }, [input]);
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#DDEFBB] to-[#FFEEEE]">
       <Navbar />
       <div className="max-w-6xl mx-auto my-10">
         <div className="flex items-center justify-between my-5">
@@ -33,6 +34,7 @@ const Companies = () => {
         </div>
         <CompaniesTable />
       </div>
+      <Footer />
     </div>
   );
 };
