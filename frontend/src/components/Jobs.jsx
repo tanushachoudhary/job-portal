@@ -4,6 +4,7 @@ import FilterCard from "./FilterCard";
 import Job from "./Job";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Footer from "./shared/Footer";
 
 const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
@@ -25,9 +26,9 @@ const Jobs = () => {
   }, [allJobs, searchedQuery]);
 
   return (
-    <div>
+    <div className=" bg-gradient-to-r from-[#DDEFBB] to-[#FFEEEE]">
       <Navbar />
-      <div className="max-w-7xl mx-auto mt-5">
+      <div className="max-w-7xl mx-auto mt-5  pb-24">
         <div className="flex gap-5">
           <div className="w-20%">
             <FilterCard />
@@ -36,7 +37,7 @@ const Jobs = () => {
             <span>Job not found</span>
           ) : (
             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-8 ">
                 {filterJobs.map((job) => (
                   <motion.div
                     initial={{ opacity: 0, x: 100 }}
@@ -53,6 +54,7 @@ const Jobs = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -74,8 +83,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-
 
 @layer base {
   * {

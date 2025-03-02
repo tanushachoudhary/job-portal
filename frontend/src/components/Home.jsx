@@ -7,6 +7,9 @@ import Footer from "./shared/Footer";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import CompanySlider from "./CompanySlider";
+import Stats from "./Stats";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
   useGetAllJobs();
@@ -19,11 +22,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-[#DDEFBB]  to-[#FFEEEE]">
       <Navbar />
       <HeroSection />
       <CategoryCarousel />
       <LatestJobs />
+      <CompanySlider />
+      <Stats />
+      <Testimonials />
       <Footer />
     </div>
   );
