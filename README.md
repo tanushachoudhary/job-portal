@@ -13,7 +13,7 @@ Welcome to the Job Search Website project! This platform is designed to help job
 
 ## Technologies Used
 
-- **Frontend**: React.js, Tailwind CSS
+- **Frontend**: React.js, Tailwind CSS, Shadcn UI
 - **State Management**: Redux
 - **Routing**: React Router
 - **Animations**: Framer Motion (for smooth UI transitions and effects)
