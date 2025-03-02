@@ -17,7 +17,7 @@ Welcome to the Job Search Website project! This platform is designed to help job
 - **State Management**: Redux
 - **Routing**: React Router
 - **Animations**: Framer Motion (for smooth UI transitions and effects)
-- **Backend (Future)**: Node.js, Express (for API endpoints and job data management)
+- **Backend**: Node.js, Express (for API endpoints and job data management)
 
 ## Setup & Installation
 
