@@ -77,7 +77,7 @@ const Signup = () => {
   return (
     <div className="bg-gradient-to-r from-[#000428] to-[#004e92] h-screen">
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto w-2/5 bg-transparent border-2 border-white/20 backdrop-blur-md shadow-md rounded-lg bg-blue-300 mt-8">
+      <div className="flex items-center justify-center max-w-7xl mx-auto w-2/5 backdrop-blur-md shadow-md rounded-lg bg-blue-300 mt-8">
         <form
           onSubmit={submitHandler}
           className="w-full rounded-xl p-3 my-6 mx-5"
