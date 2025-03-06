@@ -62,7 +62,7 @@ const Job = ({ job }) => {
         >
           Details
         </Button>
-        <Button className="bg-[#7209b7]">Save for Later</Button>
+        <Button className="bg-blue-700">Save for Later</Button>
       </div>
     </div>
   );
