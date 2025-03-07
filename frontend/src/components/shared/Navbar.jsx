@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4 md:px-8">
         {/* Logo */}
         <h1 className="text-2xl md:text-3xl font-bold">
-          <Link to="/">
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
             Insider<span className="text-blue-700">Jobs</span>
           </Link>
         </h1>
@@ -63,14 +63,20 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <li className="text-blue-700">
-                <Link to="/">Home</Link>
+              <li>
+                <Link to="/" className="text-blue-700">
+                  Home
+                </Link>
               </li>
-              <li className="text-blue-700">
-                <Link to="/jobs">Jobs</Link>
+              <li>
+                <Link to="/jobs" className="text-blue-700">
+                  Jobs
+                </Link>
               </li>
-              <li className="text-blue-700">
-                <Link to="/browse">Browse</Link>
+              <li>
+                <Link to="/browse" className="text-blue-700">
+                  Browse
+                </Link>
               </li>
             </>
           )}
@@ -83,24 +89,77 @@ const Navbar = () => {
               {user && user.role === "recruiter" ? (
                 <>
                   <li>
-                    <Link to="/admin/companies">Companies</Link>
+                    <Link
+                      to="/admin/companies"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Companies
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/admin/jobs">Jobs</Link>
+                    <Link to="/admin/jobs" onClick={() => setIsMenuOpen(false)}>
+                      Jobs
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
-                  <li className="text-blue-700">
-                    <Link to="/">Home</Link>
+                  <li>
+                    <Link
+                      to="/"
+                      className="text-blue-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Home
+                    </Link>
                   </li>
-                  <li className="text-blue-700">
-                    <Link to="/jobs">Jobs</Link>
+                  <li>
+                    <Link
+                      to="/jobs"
+                      className="text-blue-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Jobs
+                    </Link>
                   </li>
-                  <li className="text-blue-700">
-                    <Link to="/browse">Browse</Link>
+                  <li>
+                    <Link
+                      to="/browse"
+                      className="text-blue-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Browse
+                    </Link>
                   </li>
                 </>
+              )}
+              {/* Mobile Login / Signup Buttons */}
+              {!user && (
+                <div className="flex flex-col items-center w-full gap-2 mt-2">
+                  <Link
+                    to="/login"
+                    className="w-4/5 flex flex-col items-center"
+                  >
+                    <Button
+                      variant="outline"
+                      className="w-1/2 font-semibold text-base"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Login
+                    </Button>
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="w-4/5 flex flex-col items-center"
+                  >
+                    <Button
+                      className="w-1/2 bg-blue-700 text-white font-semibold text-base hover:bg-blue-900"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Signup
+                    </Button>
+                  </Link>
+                </div>
               )}
             </ul>
           </div>
@@ -123,33 +182,21 @@ const Navbar = () => {
         ) : (
           <Popover>
             <PopoverTrigger asChild>
-              {user?.profile?.profilePhoto ? (
-                <Avatar className="cursor-pointer">
-                  <AvatarImage
-                    src={user?.profile?.profilePhoto}
-                    alt="Profile"
-                  />
-                </Avatar>
-              ) : (
-                <Avatar className="cursor-pointer">
-                  <AvatarImage src={user_icon} alt="Profile" />
-                </Avatar>
-              )}
+              <Avatar className="cursor-pointer">
+                <AvatarImage
+                  src={user?.profile?.profilePhoto || user_icon}
+                  alt="Profile"
+                />
+              </Avatar>
             </PopoverTrigger>
             <PopoverContent className="w-72">
               <div className="flex items-center gap-4 p-4">
-                {user?.profile?.profilePhoto ? (
-                  <Avatar className="cursor-pointer">
-                    <AvatarImage
-                      src={user?.profile?.profilePhoto}
-                      alt="Profile"
-                    />
-                  </Avatar>
-                ) : (
-                  <Avatar className="cursor-pointer">
-                    <AvatarImage src={user_icon} alt="Profile" />
-                  </Avatar>
-                )}
+                <Avatar className="cursor-pointer">
+                  <AvatarImage
+                    src={user?.profile?.profilePhoto || user_icon}
+                    alt="Profile"
+                  />
+                </Avatar>
                 <div>
                   <h4 className="font-medium">{user?.fullname}</h4>
                   <p className="text-sm text-muted-foreground">

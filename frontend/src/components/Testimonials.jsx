@@ -47,7 +47,9 @@ const Testimonials = () => {
         {dummyTestimonial.map((testimonial, index) => (
           <div
             key={index}
-            className="text-sm text-left border border-gray-500/30 pb-6 rounded-lg bg-white shadow-[0px_4px_15px_0px] shadow-black/5 overflow-hidden transform hover:scale-105 transition-transform duration-300"
+            className={`text-sm text-left border border-gray-500/30 pb-6 rounded-lg bg-white shadow-[0px_4px_15px_0px] shadow-black/5 overflow-hidden transform hover:scale-105 transition-transform duration-300 ${
+              index === 2 ? "hidden sm:block" : ""
+            }`}
           >
             <div className="flex items-center gap-4 px-5 py-4 bg-blue-100">
               <img
