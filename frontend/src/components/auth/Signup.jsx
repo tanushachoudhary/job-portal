@@ -11,6 +11,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
+import img2 from "@/assets/image2.png";
 
 const Signup = () => {
   const [input, setInput] = useState({
@@ -23,9 +24,7 @@ const Signup = () => {
   });
 
   const { loading, user } = useSelector((store) => store.auth);
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
@@ -61,8 +60,7 @@ const Signup = () => {
         toast.success(res.data.message);
       }
     } catch (error) {
-      console.log(error);
-      toast.success(error.response.data.message);
+      toast.error(error.response?.data?.message || "Signup failed!");
     } finally {
       dispatch(setLoading(false));
     }
@@ -72,114 +70,131 @@ const Signup = () => {
     if (user) {
       navigate("/");
     }
-  }, []);
-
+  }, [user, navigate]);
   return (
-    <div className="bg-gradient-to-r from-[#000428] to-[#004e92] h-screen">
+    <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto w-2/5 backdrop-blur-md shadow-md rounded-lg bg-blue-300 mt-8">
-        <form
-          onSubmit={submitHandler}
-          className="w-full rounded-xl p-3 my-6 mx-5"
-        >
-          <h1 className="font-bold text-xl mb-5">Sign Up</h1>
-          <div className="my-3">
-            <Label className="text-base">Full Name</Label>
-            <Input
-              type="text"
-              placeholder="enter your name here"
-              value={input.fullname}
-              name="fullname"
-              onChange={changeEventHandler}
-            />
-          </div>
-          <div className="my-3">
-            <Label className="text-base">Email</Label>
-            <Input
-              type="email"
-              placeholder="mail@gmail.com"
-              value={input.email}
-              name="email"
-              onChange={changeEventHandler}
-            />
-          </div>
-          <div className="my-3">
-            <Label className="text-base">Phone Number</Label>
-            <Input
-              type="text"
-              placeholder="1234567890"
-              value={input.phoneNumber}
-              name="phoneNumber"
-              onChange={changeEventHandler}
-            />
-          </div>
-          <div className="my-3">
-            <Label className="text-base">Password</Label>
-            <Input
-              type="password"
-              placeholder="enter password"
-              value={input.password}
-              name="password"
-              onChange={changeEventHandler}
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-4">
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="student"
-                  checked={input.role === "student"}
-                  onChange={changeEventHandler}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="r1" className="text-base">
-                  Student
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="recruiter"
-                  checked={input.role === "recruiter"}
-                  onChange={changeEventHandler}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="r2" className="text-base">
-                  Recruiter
-                </Label>
-              </div>
-            </RadioGroup>
-            <div className="flex items-center gap-2 ml-11">
-              <Label className="text-base">Profile</Label>
+      <div className="flex flex-col md:flex-row items-center justify-center mx-auto max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden mt-8 p-3">
+        {/* Left Side (Image) */}
+        <div className="hidden md:flex md:w-1/2 items-center justify-center">
+          <img
+            src={img2}
+            alt="Signup Illustration"
+            className="w-full object-contain"
+          />
+        </div>
+
+        {/* Right Side (Form) */}
+        <div className="w-full md:w-1/2 p-6">
+          <h1 className="text-2xl font-bold mb-5 text-center md:text-left">
+            Create Your Account
+          </h1>
+          <form onSubmit={submitHandler} className="space-y-4">
+            <div>
+              <Label className="text-base">Full Name</Label>
               <Input
-                accept="image/*"
-                type="file"
-                onChange={changeFileHandler}
-                className="cursor-pointer"
+                type="text"
+                placeholder="Enter your name"
+                value={input.fullname}
+                name="fullname"
+                onChange={changeEventHandler}
               />
             </div>
-          </div>
-          {loading ? (
-            <Button className="w-full my-4">
-              {" "}
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait{" "}
-            </Button>
-          ) : (
-            <Button type="submit" className="w-full my-4 bg-[#004e92] text-base">
-              Sign Up
-            </Button>
-          )}
-          <span className="text-base">
-            Already have an account?
-            <Link to="/login" className="text-blue-700">
-              {" "}
+            <div>
+              <Label className="text-base">Email</Label>
+              <Input
+                type="email"
+                placeholder="mail@example.com"
+                value={input.email}
+                name="email"
+                onChange={changeEventHandler}
+              />
+            </div>
+            <div>
+              <Label className="text-base">Phone Number</Label>
+              <Input
+                type="text"
+                placeholder="1234567890"
+                value={input.phoneNumber}
+                name="phoneNumber"
+                onChange={changeEventHandler}
+              />
+            </div>
+            <div>
+              <Label className="text-base">Password</Label>
+              <Input
+                type="password"
+                placeholder="Enter password"
+                value={input.password}
+                name="password"
+                onChange={changeEventHandler}
+              />
+            </div>
+
+            {/* Role Selection */}
+            <div>
+              <Label className="text-base">Role</Label>
+              <RadioGroup className="flex gap-6 mt-2">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <Input
+                    type="radio"
+                    name="role"
+                    value="student"
+                    checked={input.role === "student"}
+                    onChange={changeEventHandler}
+                  />
+                  Student
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <Input
+                    type="radio"
+                    name="role"
+                    value="recruiter"
+                    checked={input.role === "recruiter"}
+                    onChange={changeEventHandler}
+                  />
+                  Recruiter
+                </label>
+              </RadioGroup>
+            </div>
+
+            {/* Profile Picture Upload */}
+            <div>
+              <Label className="text-base">Profile Picture</Label>
+              <div className="flex items-center gap-2 mt-1">
+                <Input
+                  accept="image/*"
+                  type="file"
+                  onChange={changeFileHandler}
+                  className="cursor-pointer border border-gray-300 rounded-md p-2"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            {loading ? (
+              <Button className="w-full flex items-center justify-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Please Wait...
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                className="w-full bg-blue-700 text-white hover:bg-blue-900"
+              >
+                Sign Up
+              </Button>
+            )}
+          </form>
+
+          {/* Login Redirect */}
+          <p className="text-sm text-center mt-4">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-700 font-semibold">
               Login
             </Link>
-          </span>
-        </form>
+          </p>
+        </div>
       </div>
     </div>
   );

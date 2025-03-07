@@ -20,52 +20,32 @@ import img17 from "../assets/17.webp";
 import img18 from "../assets/18.webp";
 
 const images = [
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
-  img14,
-  img15,
-  img16,
-  img17,
-  img18,
+  img1, img2, img3, img4, img5, img6, img7, img8, img9,
+  img10, img11, img12, img13, img14, img15, img16, img17, img18
 ];
 
 const CompanySlider = () => {
   return (
-    <div className="overflow-hidden w-full bg-gradient-to-r from-[#DDEFBB]  to-[#FFEEEE] p-5 my-24">
-      <h1 className="text-4xl font-bold text-center">
-        <span className="text-blue-700">Top </span> Companies trust us
+    <div className="overflow-hidden w-full bg-gradient-to-r from-[#DDEFBB] to-[#FFEEEE] py-10">
+      <h1 className="text-3xl md:text-4xl font-bold text-center">
+        <span className="text-blue-700">Top</span> Companies Trust Us
       </h1>
-      <div className="bg-white h-24 w-full">
-        <div className="relative mt-8 w-full">
-          <motion.div
-            className="flex w-max gap-14"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-          >
-            {images
-              .concat(images)
-              .concat(images)
-              .map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`Company Logo ${index}`}
-                  className="w-32 h-14 mt-4 object-contain"
-                />
-              ))}
-          </motion.div>
-        </div>
+      
+      <div className="relative mt-8 w-full overflow-hidden">
+        <motion.div
+          className="flex w-max gap-10"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+        >
+          {images.concat(images).map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Company Logo ${index}`}
+              className="w-24 md:w-32 h-12 md:h-14 object-contain"
+            />
+          ))}
+        </motion.div>
       </div>
     </div>
   );
