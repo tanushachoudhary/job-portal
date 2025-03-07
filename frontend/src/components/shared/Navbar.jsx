@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { USER_API_END_POINT } from "../utils/constant";
 import { setUser } from "@/redux/authSlice";
 import axios from "axios";
+import user_icon from "@/assets/user.png";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
@@ -122,18 +123,33 @@ const Navbar = () => {
         ) : (
           <Popover>
             <PopoverTrigger asChild>
-              <Avatar className="cursor-pointer">
-                <AvatarImage src={user?.profile?.profilePhoto} alt="Profile" />
-              </Avatar>
-            </PopoverTrigger>
-            <PopoverContent className="w-72">
-              <div className="flex items-center gap-4 p-4">
-                <Avatar>
+              {user?.profile?.profilePhoto ? (
+                <Avatar className="cursor-pointer">
                   <AvatarImage
                     src={user?.profile?.profilePhoto}
                     alt="Profile"
                   />
                 </Avatar>
+              ) : (
+                <Avatar className="cursor-pointer">
+                  <AvatarImage src={user_icon} alt="Profile" />
+                </Avatar>
+              )}
+            </PopoverTrigger>
+            <PopoverContent className="w-72">
+              <div className="flex items-center gap-4 p-4">
+                {user?.profile?.profilePhoto ? (
+                  <Avatar className="cursor-pointer">
+                    <AvatarImage
+                      src={user?.profile?.profilePhoto}
+                      alt="Profile"
+                    />
+                  </Avatar>
+                ) : (
+                  <Avatar className="cursor-pointer">
+                    <AvatarImage src={user_icon} alt="Profile" />
+                  </Avatar>
+                )}
                 <div>
                   <h4 className="font-medium">{user?.fullname}</h4>
                   <p className="text-sm text-muted-foreground">

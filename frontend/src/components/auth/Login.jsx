@@ -13,7 +13,7 @@ import { setLoading, setUser } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import img from "@/assets/image.png";
 
-const Login2 = () => {
+const Login = () => {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -143,4 +143,4 @@ const Login2 = () => {
   );
 };
 
-export default Login2;
+export default Login;
