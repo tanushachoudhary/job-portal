@@ -13,7 +13,6 @@ Welcome to the Job Search Website project! This platform is designed to help job
 - **Job Search**: Search for jobs based on keywords, location, job title, and more.
 - **Easy Application**: Apply directly to jobs with a streamlined application process.
 - **Customizable Filters**: Filter job listings by categories, salary, experience, and more.
-- **Job Alerts**: Stay updated with new job opportunities via notifications.
 - **Company Reviews**: Get insights into the companies you are applying to through user testimonials.
 - **Responsive Design**: Fully responsive layout, optimized for both desktop and mobile users.
 
