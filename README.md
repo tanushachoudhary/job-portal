@@ -2,12 +2,17 @@
 
 Welcome to the Job Search Website project! This platform is designed to help job seekers easily explore job opportunities, apply to their dream jobs, and get hired faster. Users can search for jobs, filter results, and receive recommendations based on their skills, preferences, and experience.
 
+
+
+![Screenshot 2025-03-08 104715](https://github.com/user-attachments/assets/328f5da7-cab0-4f6a-9e42-f2007d8b565c)
+
+
 ## Features
+
 
 - **Job Search**: Search for jobs based on keywords, location, job title, and more.
 - **Easy Application**: Apply directly to jobs with a streamlined application process.
 - **Customizable Filters**: Filter job listings by categories, salary, experience, and more.
-- **Job Alerts**: Stay updated with new job opportunities via notifications.
 - **Company Reviews**: Get insights into the companies you are applying to through user testimonials.
 - **Responsive Design**: Fully responsive layout, optimized for both desktop and mobile users.
 
