@@ -23,9 +23,9 @@ const Job = ({ job }) => {
             ? "Today"
             : `${daysAgoFunction(job?.createdAt)} days ago`}
         </p>
-        <Button variant="outline" className="rounded-full" size="icon">
+        {/* <Button variant="outline" className="rounded-full" size="icon">
           <Bookmark />
-        </Button>
+        </Button> */}
       </div>
 
       <div className="flex items-center gap-2 my-2">
